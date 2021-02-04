@@ -13,55 +13,55 @@ parseconf() {
     exit 1;
   fi
 
-  export MYCROFT_DOMAIN=$(yq r mycroft.yaml mycroft_domain)
+  export MYCROFT_DOMAIN=$(yq e '.mycroft_domain' mycroft.yaml)
   if [ -z "$MYCROFT_DOMAIN" ]; then
     log_error "mycroft_domain not set! Check your mycroft.yaml file.";
     exit 1;
   fi
 
-  export SSO_BASE_URL=$(yq r mycroft.yaml sso_base_url)
+  export SSO_BASE_URL=$(yq e '.sso_base_url' mycroft.yaml)
   if [ -z "$SSO_BASE_URL" ]; then
     log_error "sso_base_url not set! Check your mycroft.yaml file.";
     exit 1;
   fi
 
-  export OAUTH_BASE_URL=$(yq r mycroft.yaml oauth_base_url)
+  export OAUTH_BASE_URL=$(yq e '.oauth_base_url' mycroft.yaml)
   if [ -z "$OAUTH_BASE_URL" ]; then
     log_error "oauth_base_url not set! Check your mycroft.yaml file.";
     exit 1;
   fi
 
-  export GITHUB_USER=$(yq r mycroft.yaml github_user)
+  export GITHUB_USER=$(yq e '.github_user' mycroft.yaml)
   if [ -z "$GITHUB_USER" ]; then
     log_error "github_user not set! Check your mycroft.yaml file.";
     exit 1;
   fi
 
-  export GITHUB_PASSWORD=$(yq r mycroft.yaml github_password)
+  export GITHUB_PASSWORD=$(yq e '.github_password' mycroft.yaml)
   if [ -z "$GITHUB_PASSWORD" ]; then
     log_error "github_password not set! Check your mycroft.yaml file.";
     exit 1;
   fi
 
-  export EMAIL_SERVICE_HOST=$(yq r mycroft.yaml email_service_host)
+  export EMAIL_SERVICE_HOST=$(yq e '.email_service_host' mycroft.yaml)
   if [ -z "$EMAIL_SERVICE_HOST" ]; then
     log_error "email_service_host not set! Check your mycroft.yaml file.";
     exit 1;
   fi
 
-  export EMAIL_SERVICE_PORT=$(yq r mycroft.yaml email_service_port)
+  export EMAIL_SERVICE_PORT=$(yq e '.email_service_port' mycroft.yaml)
   if [ -z "$EMAIL_SERVICE_PORT" ]; then
     log_error "email_service_port not set! Check your mycroft.yaml file.";
     exit 1;
   fi
 
-  export EMAIL_SERVICE_USER=$(yq r mycroft.yaml email_service_user)
+  export EMAIL_SERVICE_USER=$(yq e '.email_service_user' mycroft.yaml)
   if [ -z "$EMAIL_SERVICE_USER" ]; then
     log_error "email_service_user not set! Check your mycroft.yaml file.";
     exit 1;
   fi
 
-  export EMAIL_SERVICE_PASSWORD=$(yq r mycroft.yaml email_service_password)
+  export EMAIL_SERVICE_PASSWORD=$(yq e '.email_service_password' mycroft.yaml)
   if [ -z "$EMAIL_SERVICE_PASSWORD" ]; then
     log_error "email_service_password not set! Check your mycroft.yaml file.";
     exit 1;
