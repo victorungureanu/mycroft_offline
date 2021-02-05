@@ -108,7 +108,9 @@ log_error() {
 generate_password_file() {
   mkdir -p $1
   if [ -f ${1}/${2} ]; then
-    log_warn "File ${1}/${2} already exists. Skipping generation."
+    log_warn "File ${1}/${2} already exists. Skipping generation.";
+    else
+    echo $(</dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${3:-32}) > ${1}/${2}
   fi
-  echo $(</dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${3:-32}) > ${1}/${2}
+  
 }
